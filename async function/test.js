@@ -19,36 +19,30 @@ async function start(){
         usr.innerText = users.filter(function (el) {
             return el.uris.company === `/companies/${i}`;
         }).map(a => a.name);
-
     }
-
 }
 
 
-    async function dbUsers() {
+    async function dbUsers() {                                  // usr fetch
         let users;
 
         const usersData = fetch(`http://localhost:3000/users`)
             .then(res => res.json());
 
-
-        await usersData.then(res => users = res); // pamiętaj o = res!! dlatego nie działąło
+        await usersData.then(res => users = res); 
 
         return users;
-
     }
 
-    async function dbCompanies() {
+    async function dbCompanies() {                              // companies fetch
         let companies;
 
         const companiesData = fetch(`http://localhost:3000/companies`)
             .then(res => res.json());
 
-
-        await companiesData.then(res => companies = res); // pamiętaj o = res!! dlatego nie działąło
+        await companiesData.then(res => companies = res); 
 
         return companies;
-
     }
 
     start();
